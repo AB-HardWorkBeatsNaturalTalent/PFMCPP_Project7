@@ -1,7 +1,16 @@
 #include "Dwarf.h"
 
-//Dwarf::Dwarf
+Dwarf::Dwarf(std::string nm, int x, int y) : name(nm)
+{
+    
+}
 
-//Dwarf::getName
+void const std::string& Dwarf::getName() override
+{
+    
+}
 
-//Dwarf::getStats
+std::string Dwarf::getStats() override
+{
+    return "a string";
+}

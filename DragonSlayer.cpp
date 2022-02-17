@@ -2,10 +2,18 @@
 #include "Dragon.h"
 
 //DragonSlayer::DragonSlayer
+DragonSlayer::DragonSlayer()
+{
+    
+}
 
 //DragonSlayer::getName
+const std::string& DragonSlayer::getName() override
+{
+    return name;   
+}
 
-void DragonSlayer::attack(Character& other)
+void DragonSlayer::attack(Character& other) override
 {
     std::cout << name << " is attacking " << other.getName() << " !!" << std::endl;
     if( auto* dragon = dynamic_cast<Dragon*>(&other) )
@@ -27,3 +35,7 @@ void DragonSlayer::attack(Character& other)
 }
 
 //DragonSlayer::getStats
+std::string DragonSlayer::getStats() override
+{
+    return Character::getStats();
+}
