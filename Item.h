@@ -15,3 +15,4 @@ private:
     std::string name;
     int boost;
 };
+
