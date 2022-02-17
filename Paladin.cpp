@@ -1,7 +1,15 @@
 #include "Paladin.h"
 
-// Paladin::Paladin
+Paladin(std::string nm, int x, int y)
+{
+    
+}
 
-// Paladin::getName
-
-// Paladin::getStats
+const std::string& getName() override
+{
+    
+}
+std::string getStats() override
+{
+    
+}
