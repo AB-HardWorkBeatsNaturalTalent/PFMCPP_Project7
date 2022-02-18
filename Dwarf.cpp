@@ -1,20 +1,21 @@
 #include "Dwarf.h"
 #include "Utility.h"
 #include <string>
+#include "Character.h"
 
-Dwarf::Dwarf(std::string nm, int x, int y) : name(nm), Character.hitpoints(x), Character.armor(y)
+Dwarf::Dwarf(std::string nm, int x, int y) : name(nm), Character(x,y, 10)
 {
     
 }
 
-void const std::string& Dwarf::getName()
+const std::string& Dwarf::getName()
 {
     return name;
 }
 
 std::string Dwarf::getStats()
 {
-    return getCharacterStats();
+    return getCharacterStats(this);
 }
 
 void attack(Character& other)

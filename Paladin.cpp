@@ -1,17 +1,24 @@
 #include "Paladin.h"
 #include "Character.h"
 #include <string>
+#include "Utility.h"
 
-Paladin(std::string nm, int x, int y) : Character(x,y,3), name(nm)
+Paladin::Paladin(std::string nm, int x, int y) : Character(x,y,3), name(nm)
 {
     
 }
 
-const std::string& getName()
+const std::string& Paladin::getName()
 {
     return name;
 }
-std::string getStats()
+
+std::string Paladin::getStats()
+{
+    return getCharacterStats(this);
+}
+
+void Paladin::attack(Character& other)
 {
     
 }
