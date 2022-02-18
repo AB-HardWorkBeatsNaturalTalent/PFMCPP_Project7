@@ -20,7 +20,7 @@ void Dragon::attack(Character &other)
     }
     else
     {
-        Character::attack(other);
+        Character::attack(other);//calling the most derived. 
     }
 }
 

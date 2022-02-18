@@ -15,7 +15,7 @@ const std::string& Paladin::getName()
     return name;
 }
 
-std::string getStats() /*override, causes error expected func body */
+std::string Paladin::getStats() /*override, causes error expected func body */
 {
     return getCharacterStats(this);
 }

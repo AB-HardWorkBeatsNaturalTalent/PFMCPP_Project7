@@ -93,9 +93,10 @@ void Character::attackInternal(Character& other)
 {
     if( other.hitPoints <= 0 )
     {
-        if(hitPoints < initialHitpoints.get()) hitPoints = initialHitpoints.get();        
-        if(armor < initialArmorLevel.get()) armor = initialArmorLevel.get();
-        if( attack < initialAttackDamage.get()) attack = initialAttackDamage.get();
+        if(hitPoints < *this->initialHitPoints.get()) hitPoints = *initialHitPoints.get();        
+        /*if(armor < initialArmorLevel.get()) armor = initialArmorLevel.get();
+        if( attack < initialAttackDamage.get()) attack = initialAttackDamage.get();*/
+        
         /*
         
         When you defeat another Character: 
