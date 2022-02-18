@@ -7,8 +7,11 @@
 #include "Utility.h"
 void DefensiveItem::use(Character* character)
 {
+    useDefensiveItem(character, *this);
     //assert(false); 
     //make your defensive item use the appropriate Utility helper functions
-    useDefensiveItem(character, *this);
+    
+    //loop through items, cast to defensive item.
+    //
     
 }

@@ -4,7 +4,7 @@
 #include "Character.h"
 #include <string>
 
-Dragon::Dragon(std::string nm, int x, int y) : name(nm), Character(x, y, 5)
+Dragon::Dragon(std::string nm, int x, int y) : Character(x, y, 5), name(nm)
 {
     
 }
@@ -25,7 +25,7 @@ void Dragon::attack(Character &other)
 
 const std::string& Dragon::getName()
 {
-    
+    return name;
 }
 std::string Dragon::getStats()
 {
