@@ -53,7 +53,7 @@ void Character::defend()
 void Character::help(Character& other)
 {
     std::cout << getName() << " is going to help " << other.getName() << std::endl;
-    for( auto& item : helpfulItems )
+    for( auto& item : helpfulItems )//give me a reference to each item in helpful items?
     {
         if( auto* helpfulItem = dynamic_cast<HelpfulItem*>(item.get()) )
         {
@@ -92,25 +92,25 @@ int Character::takeDamage(int damage)
 void Character::attackInternal(Character& other)
 {
     if( other.hitPoints <= 0 )
-    {
-        if(hitPoints < *this->initialHitPoints.get()) hitPoints = *initialHitPoints.get();        
-        /*if(armor < initialArmorLevel.get()) armor = initialArmorLevel.get();
-        if( attack < initialAttackDamage.get()) attack = initialAttackDamage.get();*/
+    {/* When you defeat another Character: 
+        a) your stats are restored to their initial value if they are lower than it.*/     
+        if(hitPoints < *this->initialHitPoints.get()) 
+            hitPoints = *initialHitPoints.get();        
+        if(armor < *this->initialArmorLevel.get()) 
+            armor = *this->initialArmorLevel.get();
+        if( attackDamage < *this->initialAttackDamage.get()) 
+            attackDamage = *this->initialAttackDamage.get();        
+    /*
+        b) your stats are boosted 10% */
+        boostAttackDamage(10);
+        boostHitPoints(10);
+        boostArmor(10);
+    /* 
+        c) the initial value of your stats is updated to reflect this boosted stat for 
+the next time you defeat another character.*/        
+        //updateInitialStats -> (hp, armor, atk);
         
-        /*
-        
-        When you defeat another Character: 
-            a) your stats are restored to their initial value if they are lower than it.
-            b) your stats are boosted 10%
-
-        boostHitpoints, boostArmor, boostAttack
-
-            c) the initial value of your stats is updated to reflect this boosted stat for 
-the next time you defeat another character.
-
-        updateInitialStats (hp, armor, atk)
-
-      */
+      
         
         //assert(false);
         std::cout << getName() << " defeated " << other.getName() << " and leveled up!" << std::endl;        
