@@ -9,5 +9,9 @@
 void AttackItem::use(Character* ch)
 {
     useAttackItem( ch, this );
+
+    //depending on the character type that uses it,
+        //do somethign different.
+    
 }
 
