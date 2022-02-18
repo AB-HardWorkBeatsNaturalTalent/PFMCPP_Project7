@@ -112,7 +112,7 @@ the next time you defeat another character.
 
       */
         
-        assert(false);
+        //assert(false);
         std::cout << getName() << " defeated " << other.getName() << " and leveled up!" << std::endl;        
     }
 }
