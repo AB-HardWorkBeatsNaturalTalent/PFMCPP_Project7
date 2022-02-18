@@ -6,6 +6,7 @@
 #include <cassert>
 #include "Utility.h"
 
+//using base class initialization 
 DragonSlayer::DragonSlayer(std::string nm, int x, int y) : name(nm), Character(x, y, 5)
 {
     

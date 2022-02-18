@@ -3,6 +3,7 @@
 #include <string>
 #include "Character.h"
 
+//using base class initialization
 Dwarf::Dwarf(std::string nm, int x, int y) : name(nm), Character(x,y, 4)
 {
     
