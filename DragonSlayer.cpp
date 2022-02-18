@@ -30,7 +30,7 @@ void DragonSlayer::attack(Character& other)
         {
             //DragonSlayers get a 10x boost when attacking dragons, from their attack item.            
             //so they should USE their attack item before attacking the dragon... 
-            useAttackItem(*this, /*atk item here*/);
+           // useAttackItem(*this, /*atk item here*/);
             //for each item in this characters list of attack items, 
                 //use the item, 
                 //reset the item.
