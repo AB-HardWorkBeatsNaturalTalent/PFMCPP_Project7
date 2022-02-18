@@ -3,7 +3,7 @@
 #include <string>
 #include "Character.h"
 
-Dwarf::Dwarf(std::string nm, int x, int y) : name(nm), Character(x,y, 10)
+Dwarf::Dwarf(std::string nm, int x, int y) : name(nm), Character(x,y, 4)
 {
     
 }

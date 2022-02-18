@@ -4,7 +4,7 @@
 #include "Utility.h"
 #include "DefensiveItem.h"
 
-Paladin::Paladin(std::string nm, int x, int y) : Character(x,y,3), name(nm)
+Paladin::Paladin(std::string nm, int x, int y) : Character(x,y,10), name(nm)
 {
     
 }

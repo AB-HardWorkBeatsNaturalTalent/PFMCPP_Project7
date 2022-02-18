@@ -4,7 +4,7 @@
 #include "Character.h"
 #include <string>
 
-Dragon::Dragon(std::string nm, int x, int y) : Character(x, y, 5), name(nm)
+Dragon::Dragon(std::string nm, int x, int y) : Character(x, y, 88), name(nm)
 {
     
 }
