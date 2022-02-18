@@ -4,13 +4,14 @@
 
 #include "DefensiveItem.h"
 #include "HelpfulItem.h"
+#include "Utility.h"
 
 Character::Character(int hp, int armor_, int attackDamage_ ) :
     hitPoints(hp),
     armor(armor_),
     attackDamage(attackDamage_)
 {
-    initialHitPoints.reset( new int(hitPoints) );
+    initialHitPoints.reset( new int( hitPoints ) );
     initialArmorLevel.reset( new int( armor) );
     initialAttackDamage.reset( new int( attackDamage) );
 }
@@ -110,7 +111,7 @@ void Character::printStats()
     /*
     make your getStats() use a function from the Utility.h
     */
-    std::cout << getStats(); 
+    std::cout << getCharacterStats(this); 
     
     std::cout << std::endl;
     std::cout << std::endl;

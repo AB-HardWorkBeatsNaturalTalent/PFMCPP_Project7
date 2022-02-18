@@ -2,8 +2,11 @@
 
 #include "HelpfulItem.h"
 #include "DefensiveItem.h"
-#include "Character.h"
-
+//#include "Character.h"
+#include "Paladin.h"
+#include "DragonSlayer.h"
+#include "Dragon.h"
+struct Character;
 
 std::vector<std::unique_ptr<Item>> makeHelpfulItems(int num)
 {
@@ -95,8 +98,9 @@ void useAttackItem(Character*, Item* item)
     }
     else if( auto* ch = dynamic_cast<DragonSlayer*>(character))
     {
-        assert(false);
+        //assert(false);
         //DragonSlayers get a 10x boost when attacking dragons, from their attack item.
+        ch->boostAttackDamage(item->getBoost() * 10);
         //so their attack item should boost their attack damage by a factor of 10
         //this means you need to GET the attack damage, multiply it by the item's boost, and BOOST the attackDamage with that multiplied value.  
         //check Character.h for available member functions you can use.

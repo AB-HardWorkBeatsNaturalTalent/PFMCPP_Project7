@@ -1,25 +1,30 @@
 #include "DragonSlayer.h"
 #include "Dragon.h"
+#include "Character.h"
+#include <iostream>
+#include <string>
+#include <cassert>
+#include "Utility.h"
 
-//DragonSlayer::DragonSlayer
-DragonSlayer::DragonSlayer()
+DragonSlayer::DragonSlayer(std::string nm, int x, int y) : name(nm), Character(x, y, 5)
 {
     
 }
 
 //DragonSlayer::getName
-const std::string& DragonSlayer::getName() override
+const std::string& DragonSlayer::getName() 
 {
     return name;   
 }
 
-void DragonSlayer::attack(Character& other) override
+void DragonSlayer::attack(Character& other) 
 {
     std::cout << name << " is attacking " << other.getName() << " !!" << std::endl;
     if( auto* dragon = dynamic_cast<Dragon*>(&other) )
     {
         assert(false);
-        //DragonSlayers get a 10x boost when attacking dragons, from their attack item.
+        //DragonSlayers get a 10x boost when attacking dragons, from their attack item.    
+        //this.boostAttackDamage(10);
         //so they should USE their attack item before attacking the dragon... 
         //note: they should only use the item if the dragon's hitpoints are > 0...
         //note: items are single-use only, so you need to reset it after use.  
@@ -35,7 +40,7 @@ void DragonSlayer::attack(Character& other) override
 }
 
 //DragonSlayer::getStats
-std::string DragonSlayer::getStats() override
+std::string DragonSlayer::getStats() 
 {
-    return Character::getStats();
+    return getCharacterStats(this);
 }
