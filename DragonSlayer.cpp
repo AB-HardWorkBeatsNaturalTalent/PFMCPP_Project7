@@ -34,9 +34,11 @@ void DragonSlayer::attack(Character& other)
             //DragonSlayers get a 10x boost when attacking dragons, from their attack item.            
             //so they should USE their attack item before attacking the dragon... 
             //*initialHitPoints.get()
-            *atkItem.get();
-                //reset the item.
-            atkItem.reset();
+            if(atkItem)
+            {
+                atkItem.get()->use(this);               
+                atkItem.reset(); //reset the item. 
+            }           
             //note: items are single-use only, so you need to reset it after use.  
             //look in the Character class for how the other item types are reset after use.  
             //sounds like we want to use a pointer then. 
