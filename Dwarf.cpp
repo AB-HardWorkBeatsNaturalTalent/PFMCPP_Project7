@@ -4,7 +4,7 @@
 #include "Character.h"
 
 //using base class initialization
-Dwarf::Dwarf(std::string nm, int x, int y) : name(nm), Character(x,y, 4)
+Dwarf::Dwarf(std::string nm, int x, int y) : Character(x,y, 4), name(nm)
 {
     helpfulItems = makeHelpfulItems(4);
     defensiveItems = makeDefensiveItems(10);

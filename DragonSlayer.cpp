@@ -8,7 +8,7 @@
 #include "AttackItem.h"
 
 //using base class initialization 
-DragonSlayer::DragonSlayer(std::string nm, int x, int y) : name(nm), Character(x, y, 4)
+DragonSlayer::DragonSlayer(std::string nm, int x, int y) :  Character(x, y, 4), name(nm)
 {
     atkItem.reset(new AttackItem());
     helpfulItems = makeHelpfulItems(3);
@@ -55,3 +55,4 @@ std::string DragonSlayer::getStats()
 {
     return getCharacterStats(this);
 }
+
