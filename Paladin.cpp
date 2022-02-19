@@ -23,5 +23,5 @@ std::string Paladin::getStats()
 
 void Paladin::attack(Character& other)
 {
-    
+    Character::attack(other);
 }
