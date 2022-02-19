@@ -107,8 +107,7 @@ void Character::attackInternal(Character& other)
         boostArmor(10);
     /* 
         c) the initial value of your stats is updated to reflect this boosted stat for 
-the next time you defeat another character.*/        
-        //updateInitialStats -> (hp, armor, atk);
+the next time you defeat another character.*/   
         *initialAttackDamage = getAttackDamage();
         *initialArmorLevel = getArmorLevel();
         *initialHitPoints = getHP();

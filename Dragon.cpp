@@ -7,7 +7,7 @@
 //using base class initialization
 Dragon::Dragon(std::string nm, int x, int y) : Character(x, y, 88), name(nm)
 {
-    
+
 }
 
 void Dragon::attack(Character &other)
