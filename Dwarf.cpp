@@ -6,8 +6,8 @@
 //using base class initialization
 Dwarf::Dwarf(std::string nm, int x, int y) : Character(x, y, 4), name(nm)
 {
-    helpfulItems = makeHelpfulItems(4);
-    defensiveItems = makeDefensiveItems(10);
+    helpfulItems = makeHelpfulItems(2);
+    defensiveItems = makeDefensiveItems(5);
 }
 
 const std::string& Dwarf::getName()

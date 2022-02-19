@@ -11,3 +11,8 @@ void AttackItem::use(Character* ch)
     useAttackItem( ch, this );
 }
 
+AttackItem::~AttackItem()
+{
+    
+}
+

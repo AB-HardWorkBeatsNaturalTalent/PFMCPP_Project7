@@ -53,7 +53,7 @@ void Character::defend()
 void Character::help(Character& other)
 {
     std::cout << getName() << " is going to help " << other.getName() << std::endl;
-    for( auto& item : helpfulItems )//give me a reference to each item in helpful items?
+    for( auto& item : helpfulItems )//give me a reference to each item
     {
         if( auto* helpfulItem = dynamic_cast<HelpfulItem*>(item.get()) )
         {
@@ -87,10 +87,10 @@ int Character::takeDamage(int damage)
     return hitPoints;
 }
 
-
-#include <cassert>
 void Character::attackInternal(Character& other)
 {
+    //you should not be doing this for a Dragon, it seems.
+    
     if( other.hitPoints <= 0 )
     {
         std::cout << getName() << " defeated " << other.getName() << " and leveled up!" << std::endl; 
@@ -104,9 +104,15 @@ void Character::attackInternal(Character& other)
             attackDamage = *initialAttackDamage.get();        
     /*
         b) your stats are boosted 10% */
-        boostAttackDamage(10);
-        boostHitPoints(10);
-        boostArmor(10);
+        //get the initial amount * 10%
+        int temp = *initialAttackDamage.get() * .1;
+        boostAttackDamage(temp);
+        //get the initial amount * 10%
+        temp = *initialHitPoints.get() * .1;
+        boostHitPoints(temp);
+        //get the initial amount * 10%
+        temp = *initialArmorLevel.get() * .1;
+        boostArmor(temp);
     /* 
         c) the initial value of your stats is updated to reflect this boosted stat for 
 the next time you defeat another character.*/   

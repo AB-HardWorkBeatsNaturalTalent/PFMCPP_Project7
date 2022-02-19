@@ -7,8 +7,8 @@
 //using base class initialization
 Paladin::Paladin(std::string nm, int x, int y) : Character(x,y,10), name(nm)
 {
-    helpfulItems = makeHelpfulItems(3);
-    defensiveItems = makeDefensiveItems(7);
+    helpfulItems = makeHelpfulItems(4);
+    defensiveItems = makeDefensiveItems(6);
 }
 
 const std::string& Paladin::getName()

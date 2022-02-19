@@ -6,6 +6,7 @@
 #include "Paladin.h"
 #include "DragonSlayer.h"
 #include "Dragon.h"
+#include "Dwarf.h"
 //struct Character;
 
 std::vector<std::unique_ptr<Item>> makeHelpfulItems(int num)
