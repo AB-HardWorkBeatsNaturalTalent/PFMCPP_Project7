@@ -26,31 +26,24 @@ void DragonSlayer::attack(Character& other)
     std::cout << name << " is attacking " << other.getName() << " !!" << std::endl;
     if( auto* dragon = dynamic_cast<Dragon*>(&other) )
     {
-        //assert(false);
-
     //note: they should only use the item if the dragon's hitpoints are > 0...  
-        while( dragon->getHP() > 0 ) //should it be while or just an if? i think this while loop was here. 
+        while( dragon->getHP() > 0 ) 
         {
-            //DragonSlayers get a 10x boost when attacking dragons, from their attack item.            
+            //DragonSlayers get a 10x boost when attacking dragons, from their attack item.  
             //so they should USE their attack item before attacking the dragon... 
-            //*initialHitPoints.get()
             if(atkItem)
-            {
+            {//note: items are single-use only, so you need to reset it after use.
                 atkItem.get()->use(this);               
                 atkItem.reset(); //reset the item. 
             }           
-            //note: items are single-use only, so you need to reset it after use.  
             //look in the Character class for how the other item types are reset after use.  
             //sounds like we want to use a pointer then. 
             dragon->takeDamage(attackDamage);
         }
-    }
-        
-    Character::attack(other);
-        
+    }        
+    Character::attack(other);        
 }
 
-//DragonSlayer::getStats
 std::string DragonSlayer::getStats() 
 {
     return getCharacterStats(this);
