@@ -89,33 +89,29 @@ int Character::takeDamage(int damage)
 
 void Character::attackInternal(Character& other)
 {
-    //you should not be doing this for a Dragon, it seems.
-    
     if( other.hitPoints <= 0 )
     {
         std::cout << getName() << " defeated " << other.getName() << " and leveled up!" << std::endl; 
         /* When you defeat another Character: 
         a) your stats are restored to their initial value if they are lower than it.*/     
-        if(hitPoints < *initialHitPoints.get()) 
-            hitPoints = *initialHitPoints.get();        
-        if(armor < *initialArmorLevel.get()) 
-            armor = *initialArmorLevel.get();
-        if( attackDamage < *initialAttackDamage.get()) 
-            attackDamage = *initialAttackDamage.get();        
+        if(hitPoints < *initialHitPoints.get()) hitPoints = *initialHitPoints.get();        
+        if(armor < *initialArmorLevel.get()) armor = *initialArmorLevel.get();
+        if(attackDamage < *initialAttackDamage.get()) attackDamage = *initialAttackDamage.get();    
     /*
-        b) your stats are boosted 10% */
-        //get the initial amount * 10%
-        attackDamage += *initialAttackDamage.get() / 10;
-        //get the initial amount * 10%
-        hitPoints += *initialHitPoints.get() / 10;
-        //get the initial amount * 10%
-        armor += *initialArmorLevel.get() / 10;
-    /* 
+        b) your stats are boosted 10% */        
+        hitPoints += *initialHitPoints.get() * 0.1f;
+        armor += *initialArmorLevel.get() * 0.1f;
+        attackDamage += *initialAttackDamage.get() * 0.1f;
+        /* 
         c) the initial value of your stats is updated to reflect this boosted stat for 
-the next time you defeat another character.*/   
-        *initialAttackDamage = getAttackDamage();
-        *initialArmorLevel = getArmorLevel();
-        *initialHitPoints = getHP();       
+the next time you defeat another character.*/         
+        *initialAttackDamage.get() = attackDamage;
+        *initialArmorLevel.get() = armor;
+        *initialHitPoints.get() = hitPoints;       
+
+        //we want a reference to the initial value, and a reference to the field
+        //then we can make an update to the reference.
+        
     }
 }
 
