@@ -8,7 +8,7 @@
 #include "AttackItem.h"
 
 //using base class initialization 
-DragonSlayer::DragonSlayer(std::string nm, int x, int y) :  Character(x, y, 4), name(nm)
+DragonSlayer::DragonSlayer(std::string nm, int x, int y) :  Character( x, y, 4), name(nm)
 {
     atkItem.reset(new AttackItem());
     helpfulItems = makeHelpfulItems(3);

@@ -75,7 +75,7 @@ int main()
                       //name, hit points, armor. 
     Dwarf dwarf { "Maldin the Dwarf", 3, 1 };
     Paladin paladin { "Warrick the Paladin", 5, 0 };
-    Dragon dragon { "Garry The Dragon", 200, 51 };
+    Dragon dragon { "Garry The Dragon", 200, 50 };
     DragonSlayer dragonSlayer { "Virgil the Dragon Slayer", 8, 5 };
     
     std::cout << "\nstart of battle" << std::endl;
