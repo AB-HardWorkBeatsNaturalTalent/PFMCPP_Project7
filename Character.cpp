@@ -105,14 +105,11 @@ void Character::attackInternal(Character& other)
     /*
         b) your stats are boosted 10% */
         //get the initial amount * 10%
-        int temp = *initialAttackDamage.get() * .1;
-        boostAttackDamage(temp);
+        attackDamage += *initialAttackDamage.get() * .1;
         //get the initial amount * 10%
-        temp = *initialHitPoints.get() * .1;
-        boostHitPoints(temp);
+        hitPoints += *initialHitPoints.get() * .1;
         //get the initial amount * 10%
-        temp = *initialArmorLevel.get() * .1;
-        boostArmor(temp);
+        armor += *initialArmorLevel.get() * .1;
     /* 
         c) the initial value of your stats is updated to reflect this boosted stat for 
 the next time you defeat another character.*/   

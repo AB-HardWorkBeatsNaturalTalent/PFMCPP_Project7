@@ -21,7 +21,7 @@ void Dragon::attack(Character &other)
     else
     {
         Character::attack(other);
-        //should we be calling the most derived. 
+        //other.takeDamage(attackDamage);
     }
 }
 
