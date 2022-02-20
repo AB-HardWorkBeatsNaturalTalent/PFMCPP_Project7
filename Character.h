@@ -20,7 +20,7 @@ struct Character
     virtual std::string getStats() = 0;
     
     virtual void attack( Character& other );
-    virtual void defend();
+    void defend();
     
     void help( Character& other );
     

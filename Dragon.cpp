@@ -1,8 +1,6 @@
 #include "Dragon.h"
 #include "DragonSlayer.h"
 #include "Utility.h"
-#include "Character.h"
-#include <string>
 
 //using base class initialization
 Dragon::Dragon(std::string nm, int x, int y) : Character( x, y, 80), name(nm)
