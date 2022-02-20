@@ -19,7 +19,6 @@ void Dragon::attack(Character &other)
     else
     {
         Character::attack(other);
-        //other.takeDamage(attackDamage);
     }
 }
 
