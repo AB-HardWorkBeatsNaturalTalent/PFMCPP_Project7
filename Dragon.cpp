@@ -3,7 +3,7 @@
 #include "Utility.h"
 
 //using base class initialization
-Dragon::Dragon(std::string nm, int x, int y) : Character( x, y, 80), name(nm)
+Dragon::Dragon(std::string nm, int hp, int armor) : Character( hp, armor, 80), name(nm)
 {
 
 }

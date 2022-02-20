@@ -4,7 +4,7 @@
 #include "AttackItem.h"
 
 //using base class initialization 
-DragonSlayer::DragonSlayer(std::string nm, int x, int y) :  Character( x, y, 4), name(nm), atkItem( std::make_unique<AttackItem>() )
+DragonSlayer::DragonSlayer(std::string nm, int hp, int armor) :  Character( hp, armor, 4), name(nm)
 {
     helpfulItems = makeHelpfulItems(3);
     defensiveItems = makeDefensiveItems(1);

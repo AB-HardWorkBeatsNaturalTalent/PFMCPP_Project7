@@ -2,7 +2,7 @@
 #include "Utility.h"
 
 //using base class initialization
-Paladin::Paladin(std::string nm, int x, int y) : Character( x, y, 10), name(nm)
+Paladin::Paladin(std::string nm, int hp, int armor) : Character( hp, armor, 10), name(nm)
 {
     helpfulItems = makeHelpfulItems(2);
     defensiveItems = makeDefensiveItems(6);

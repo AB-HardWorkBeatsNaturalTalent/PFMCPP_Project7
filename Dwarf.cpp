@@ -2,7 +2,7 @@
 #include "Utility.h"
 
 //using base class initialization
-Dwarf::Dwarf(std::string nm, int x, int y) : Character(x, y, 4), name(nm)
+Dwarf::Dwarf(std::string nm, int hp, int armor) : Character(hp, armor, 4), name(nm)
 {
     helpfulItems = makeHelpfulItems(2);
     defensiveItems = makeDefensiveItems(5);
