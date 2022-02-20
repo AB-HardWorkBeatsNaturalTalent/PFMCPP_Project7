@@ -1,7 +1,5 @@
 #pragma once
-#include <iostream>
 #include "Character.h"
-struct AttackItem;
 
 struct Paladin : Character
 {
