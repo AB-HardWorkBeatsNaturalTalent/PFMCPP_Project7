@@ -22,8 +22,12 @@ void DragonSlayer::attack(Character& other)
     if( auto* dragon = dynamic_cast<Dragon*>(&other) )
     {
     //note: they should only use the item if the dragon's hitpoints are > 0...       
-        atkItem.get()->use(this);               
-        atkItem.reset(); //note: items are single-use only, so you need to reset it after use. 
+        if(atkItem != nullptr)
+        {
+            atkItem.get()->use(this);               
+            atkItem.reset();
+        }
+         //note: items are single-use only, so you need to reset it after use. 
         while( dragon->getHP() > 0 ) 
         {
             //DragonSlayers get a 10x boost when attacking dragons, from their attack item.  
