@@ -1,7 +1,25 @@
 #include "Dwarf.h"
+#include "Utility.h"
 
-//Dwarf::Dwarf
+//using base class initialization
+Dwarf::Dwarf(std::string nm, int hp, int armor) : Character(hp, armor, 4), name(nm)
+{
+    helpfulItems = makeHelpfulItems(2);
+    defensiveItems = makeDefensiveItems(5);
+}
 
-//Dwarf::getName
+const std::string& Dwarf::getName()
+{
+    return name;
+}
 
-//Dwarf::getStats
+std::string Dwarf::getStats()
+{
+    return getCharacterStats(this);
+}
+
+void Dwarf::attack(Character& other)
+{
+    Character::attack(other);
+}
+

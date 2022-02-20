@@ -1,7 +1,12 @@
 #include "Dragon.h"
 #include "DragonSlayer.h"
+#include "Utility.h"
 
-//Dragon::Dragon
+//using base class initialization
+Dragon::Dragon(std::string nm, int hp, int armor) : Character( hp, armor, 80), name(nm)
+{
+
+}
 
 void Dragon::attack(Character &other)
 {
@@ -17,6 +22,11 @@ void Dragon::attack(Character &other)
     }
 }
 
-//Dragon::getName
-
-//Dragon::getStats
+const std::string& Dragon::getName()
+{
+    return name;
+}
+std::string Dragon::getStats()
+{
+    return getCharacterStats(this);
+}

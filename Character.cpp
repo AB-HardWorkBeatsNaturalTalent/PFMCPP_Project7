@@ -1,16 +1,16 @@
 #include "Character.h"
 #include <iostream>
 #include <vector>
-
 #include "DefensiveItem.h"
 #include "HelpfulItem.h"
+#include "Utility.h"
 
 Character::Character(int hp, int armor_, int attackDamage_ ) :
     hitPoints(hp),
     armor(armor_),
     attackDamage(attackDamage_)
 {
-    initialHitPoints.reset( new int(hitPoints) );
+    initialHitPoints.reset( new int( hitPoints ) );
     initialArmorLevel.reset( new int( armor) );
     initialAttackDamage.reset( new int( attackDamage) );
 }
@@ -52,7 +52,7 @@ void Character::defend()
 void Character::help(Character& other)
 {
     std::cout << getName() << " is going to help " << other.getName() << std::endl;
-    for( auto& item : helpfulItems )
+    for( auto& item : helpfulItems )//give me a reference to each item
     {
         if( auto* helpfulItem = dynamic_cast<HelpfulItem*>(item.get()) )
         {
@@ -86,27 +86,21 @@ int Character::takeDamage(int damage)
     return hitPoints;
 }
 
-
-#include <cassert>
 void Character::attackInternal(Character& other)
 {
     if( other.hitPoints <= 0 )
     {
-        /*
-        When you defeat another Character: 
-            a) your stats are restored to their initial value if they are lower than it.
-            b) your stats are boosted 10%
-            c) the initial value of your stats is updated to reflect this boosted stat for the next time you defeat another character.
-      */
-        assert(false);
-        std::cout << getName() << " defeated " << other.getName() << " and leveled up!" << std::endl;        
+        std::cout << getName() << " defeated " << other.getName() << " and leveled up!" << std::endl; 
+        boostAndUpdateStats(*initialHitPoints, hitPoints);
+        boostAndUpdateStats(*initialArmorLevel, armor);
+        boostAndUpdateStats(*initialAttackDamage, attackDamage);
     }
 }
 
 void Character::printStats()
 {
     std::cout << getName() << "'s stats: " << std::endl;
-    assert(false);
+    //assert(false);
     /*
     make your getStats() use a function from the Utility.h
     */
@@ -114,4 +108,19 @@ void Character::printStats()
     
     std::cout << std::endl;
     std::cout << std::endl;
+}
+
+void Character::boostAndUpdateStats(int& initialStat, int& stat)
+{/*
+        When you defeat another Character: 
+            a) your stats are restored to their initial value if they are lower than it.
+            b) your stats are boosted 10%
+            c) the initial value of your stats is updated to reflect this boosted stat for the next time you defeat another character.
+      */
+    if(stat < initialStat)
+    {
+        stat = initialStat;
+    }
+    stat += stat * 0.1f;
+    initialStat = stat;
 }

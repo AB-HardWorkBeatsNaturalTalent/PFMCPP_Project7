@@ -1,7 +1,24 @@
 #include "Paladin.h"
+#include "Utility.h"
 
-// Paladin::Paladin
+//using base class initialization
+Paladin::Paladin(std::string nm, int hp, int armor) : Character( hp, armor, 10), name(nm)
+{
+    helpfulItems = makeHelpfulItems(2);
+    defensiveItems = makeDefensiveItems(6);
+}
 
-// Paladin::getName
+const std::string& Paladin::getName()
+{
+    return name;
+}
 
-// Paladin::getStats
+std::string Paladin::getStats()
+{
+    return getCharacterStats(this);
+}
+
+void Paladin::attack(Character& other)
+{
+    Character::attack(other);
+}
