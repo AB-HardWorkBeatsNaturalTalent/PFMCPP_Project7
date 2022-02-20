@@ -4,9 +4,8 @@
 #include "AttackItem.h"
 
 //using base class initialization 
-DragonSlayer::DragonSlayer(std::string nm, int x, int y) :  Character( x, y, 4), name(nm)
+DragonSlayer::DragonSlayer(std::string nm, int x, int y) :  Character( x, y, 4), name(nm), atkItem( std::make_unique<AttackItem>() )
 {
-    atkItem.reset(new AttackItem());
     helpfulItems = makeHelpfulItems(3);
     defensiveItems = makeDefensiveItems(1);
 }
@@ -22,18 +21,14 @@ void DragonSlayer::attack(Character& other)
     std::cout << name << " is attacking " << other.getName() << " !!" << std::endl;
     if( auto* dragon = dynamic_cast<Dragon*>(&other) )
     {
-    //note: they should only use the item if the dragon's hitpoints are > 0...  
+    //note: they should only use the item if the dragon's hitpoints are > 0...       
+        atkItem.get()->use(this);               
+        atkItem.reset(); //note: items are single-use only, so you need to reset it after use. 
         while( dragon->getHP() > 0 ) 
         {
             //DragonSlayers get a 10x boost when attacking dragons, from their attack item.  
             //so they should USE their attack item before attacking the dragon... 
-            if(atkItem)
-            {//note: items are single-use only, so you need to reset it after use.
-                atkItem.get()->use(this);               
-                atkItem.reset(); //reset the item. 
-            }           
-            //look in the Character class for how the other item types are reset after use.  
-            //sounds like we want to use a pointer then. 
+            //look in the Character class for how the other item types are reset after use. 
             dragon->takeDamage(attackDamage);
         }
     }        
