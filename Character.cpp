@@ -92,26 +92,9 @@ void Character::attackInternal(Character& other)
     if( other.hitPoints <= 0 )
     {
         std::cout << getName() << " defeated " << other.getName() << " and leveled up!" << std::endl; 
-        /* When you defeat another Character: 
-        a) your stats are restored to their initial value if they are lower than it.*/     
-        if(hitPoints < *initialHitPoints.get()) hitPoints = *initialHitPoints.get();        
-        if(armor < *initialArmorLevel.get()) armor = *initialArmorLevel.get();
-        if(attackDamage < *initialAttackDamage.get()) attackDamage = *initialAttackDamage.get();    
-    /*
-        b) your stats are boosted 10% */        
-        hitPoints += *initialHitPoints.get() * 0.1f;
-        armor += *initialArmorLevel.get() * 0.1f;
-        attackDamage += *initialAttackDamage.get() * 0.1f;
-        /* 
-        c) the initial value of your stats is updated to reflect this boosted stat for 
-the next time you defeat another character.*/         
-        *initialAttackDamage.get() = attackDamage;
-        *initialArmorLevel.get() = armor;
-        *initialHitPoints.get() = hitPoints;       
-
-        //we want a reference to the initial value, and a reference to the field
-        //then we can make an update to the reference.
-        
+        boostAndUpdateStats(*initialHitPoints, hitPoints);
+        boostAndUpdateStats(*initialArmorLevel, armor);
+        boostAndUpdateStats(*initialAttackDamage, attackDamage);
     }
 }
 
@@ -126,4 +109,19 @@ void Character::printStats()
     
     std::cout << std::endl;
     std::cout << std::endl;
+}
+
+void Character::boostAndUpdateStats(int& initialStat, int& stat)
+{/*
+        When you defeat another Character: 
+            a) your stats are restored to their initial value if they are lower than it.
+            b) your stats are boosted 10%
+            c) the initial value of your stats is updated to reflect this boosted stat for the next time you defeat another character.
+      */
+    if(stat < initialStat)
+    {
+        stat = initialStat;
+    }
+    stat += stat * 0.1f;
+    initialStat = stat;
 }
